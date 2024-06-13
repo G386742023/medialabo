@@ -1,7 +1,35 @@
-p{
+p, h1, h2, h3, li{
     color: gray;
 }
 
 h1 {
-    color: aqua;
+    color: white;
+    background-color: gray;
+    padding: 10px;
+}
+
+h2 {
+    background-color: whitesmoke;
+    padding: 5px;
+}
+
+h3 {
+    border-bottom: 15px solid gainsboro;
+    border-left: 25px solid gainsboro;
+    border-top-left-radius: 80px 80px;
+    width: 400px;
+    padding: 5px;
+    padding-left: 25px;
+}
+
+a:link {
+    color: chocolate;
+}
+
+a:visited {
+    color: bisque;
+}
+
+a:hover {
+    text-decoration: none;
 }
