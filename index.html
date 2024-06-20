@@ -27,6 +27,7 @@
     <br>（body）<br>(p)This is my page(/p)<br>(/body)<br>(/html)
     </p>
     <p>演習の成果: <a href="practice-html/elements.html" target="_blank">演習1-4:HTMLのさまざまな要素</a></p>
+
     <h3>第2回 CSS による Web ページの装飾</h3>
     <p>
       <strong>セレクタ</strong><br>
@@ -56,7 +57,63 @@
       border: dashed red; /* 境界を赤色の点線で描く */<br>
     </p>
     <p>演習の成果: <a href="practice-css/browser-intro.html" target="_blank">ウェブブラウザの紹介</a></p>
+
     <h3>第3回 JavaScript の基本</h3>
+    <p>
+      HTML の head 要素に script 要素を追加する．<br>
+      &lt;script src="hello.js" defer&gt;&lt;/script&gt;
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Javaの構文</th>
+            <th scope="col">JavaScriptの構文</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">変数宣言</th>
+            <td>
+              int x;<br>
+              double x;<br>
+              String x;
+            </td>
+            <td>let x;</td>
+          </tr>
+          <tr>
+            <th scope="row">比較</th>
+            <td>
+              x==1<br>
+              x!=1
+            </td>
+            <td>
+              x===1<br>
+              x!==1
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">型変換</th>
+            <td>Integer.parseInt(s)<br>
+              (int)(3.14)</td>
+            <td>Number(s)<br>
+              Math.floor(3.14)</td>
+          </tr>
+          <tr>
+            <th scope="row">文字列</th>
+            <td>"こんにちは"</td>
+            <td>'こんにちは'<br>
+              "こんにちは"</td>
+          </tr>
+          <tr>
+            <th scope="row">関数(メソッド)</th>
+            <td>public static int foo(int x) {..} 	</td>
+            <td>function foo(x) {..}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </p>
     <h3>第4回 DOM と JavaScript</h3>
     <h3>第5回 イベント処理</h3>
   </body>
