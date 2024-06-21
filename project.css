@@ -5,6 +5,9 @@ p, h1, h2, h3, li{
 h1 {
     
 }
+body{
+  background-image: url("blue-background.avif") ;  
+}
 
 table {
     border-collapse: collapse;
@@ -23,6 +26,8 @@ table {
   thead,
   tfoot {
     background-color: rgb(228 240 245);
+    background-size: contain;
+    background-repeat: no-repeat;
   }
   
   th,
@@ -32,13 +37,18 @@ table {
   }
   
   td:last-of-type {
-    text-align: center;
+    text-align: left;
   }
   
-  tbody > tr:nth-of-type(even) {
-    background-color: rgb(237 238 242);
+  tbody {
+    background-color: rgba(255, 255, 255,0.7);
   }
   
+  th {
+    color: rgb(255,255,255);
+    background-color: rgb(171, 171, 171);
+  }
+
   tfoot th {
     text-align: right;
   }
