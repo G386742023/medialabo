@@ -1,4 +1,4 @@
-p, h1, h2, h3, li{
+p, h1, h2, h3, li, th, td{
     color: gray;
 }
 
@@ -42,15 +42,9 @@ table {
     letter-spacing: 1px;
   }
   
-  caption {
-    caption-side: bottom;
-    padding: 10px;
-    font-weight: bold;
-  }
-  
-  thead,
-  tfoot {
+  thead {
     background-color: rgb(164, 164, 164);
+    color: white;
   }
   
   th,
