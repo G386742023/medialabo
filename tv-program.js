@@ -80,17 +80,6 @@ let data = {
 };
 
 /////////////////// 課題3-2 はここから書き始めよう
+let p1 = document.querySelector('div#result'); 
 
-console.log(data.list.g1[0].start_time );
-console.log(data.list.g1[0].end_time );
-console.log(data.list.g1[0].service.name );
-console.log(data.list.g1[0].title );
-console.log(data.list.g1[0].subtitle );
-console.log(data.list.g1[0].act );
-console.log()
-console.log(data.list.g1[1].start_time );
-console.log(data.list.g1[1].end_time );
-console.log(data.list.g1[1].service.name );
-console.log(data.list.g1[1].title );
-console.log(data.list.g1[1].subtitle );
-console.log(data.list.g1[1].act );
+p1.textContent = (data.list.g1[0].start_time )+(data.list.g1[0].end_time )+(data.list.g1[0].service.name )+(data.list.g1[0].title )+(data.list.g1[0].subtitle )+(data.list.g1[0].act );
