@@ -51,9 +51,8 @@ for(let l1 of li) {
 
 // 練習4-5 箇条書き追加プログラム
 let ul = document.querySelector('ul#location');
-li  = document.createElement('li'); 
 for (let l2 of data){
 	li  = document.createElement('li');
-	li.textContent = 'l2.name + l2.lat + l2.lng'; 
+	li.textContent = l2.name + ' ... 緯度:' + l2.lat + ', 経度:' + l2.lng; 
   	ul.insertAdjacentElement('beforeend', li); 
 }
