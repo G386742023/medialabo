@@ -13,7 +13,9 @@
     <p></p>
     <p>プロジェクト課題で作成したページ: <a href="project.html" target="_blank">project.html</a></p>
     <h2>数当てゲーム</h2>
-    <p></p>
+    <p>
+      前回、数当てゲームの結果をコンソールに表示させていたものを、ページに表示させるようにした。具体的には、console.log()をtextContentに書き換えた。
+    </p>
     <p>数当てゲームのページ: <a href="kazuate.html" target="_blank">kazuate.html</a></p>
     <h2>各授業回の学習事項</h2>
     <h3>第1回 WWW と HTML</h3>
@@ -22,7 +24,7 @@
     <li>strong:太字</li>
     <li>br:改行（閉じタグを持たない要素，空要素 ）</li>
     <li>em:斜体</li>
-    <li>a:リンク　(a href="https://" target="_blank")</li>
+    <li>a:リンク (a href="https://" target="_blank")</li>
     <p>(!DOCTYPE html)<br>（html）<br>(head)<br>(meta charset="utf-8")<br>(title)My test page(/title)<br>(/head)
     <br>（body）<br>(p)This is my page(/p)<br>(/body)<br>(/html)
     </p>
@@ -38,7 +40,7 @@
       *           /* すべての要素 */<br>
       .box p      /* box クラスの要素の中の p要素 */<br>
       .box p:first-child  /* box クラスの要素の中の最初の p要素 */<br>
-      h1, h2, .intro      /* h1　要素と h2 要素と introクラスの要素 */<br>
+      h1, h2, .intro      /* h1 要素と h2 要素と introクラスの要素 */<br>
     </p>
     <p>
       <strong>プロパティと値</strong><br>
@@ -116,6 +118,14 @@
       <p>演習の成果: <a href="practice-js/obj-practice.html" target="_blank">オブジェクトメンバーを出力する</a></p>
     </p>
     <h3>第4回 DOM と JavaScript</h3>
+    <p>
+      今回学習したことは、DOMについてである。DOMはWebコンテンツを表す木構造である。DOMを使用することによって、JSなどのプログラムで、Web コンテンツの内容を読み取ったり、コンテンツに変更を加えたりする処理が書けるようになる。
+      つまり、動きのある Web ページを実現できるようになる。<br>
+      HTMLファイルに指定したJSファイルは DOM を使って HTML の構成を変化させる働きを持つ。このため、JavaScriptファイルを実行するとページが変化する。<br>
+      DOMの構文には、要素の検索、テキストの変更、CSSプロパティの変更、新しい要素の追加、要素の削除などがある。<br>
+      特に、CSSプロパティの変更の構文を記述する際には、原則として、要素オブジェクトの style のメンバーは CSSプロパティ名と同一であるが、マイナス記号を使わず、英大文字を使って記述することに注意しなければならない。
+    </p>
+    <p>演習の成果: <a href="practice-dom/dom-exercise.html" target="_blank">DOMプログラミング練習</a></p>
     <h3>第5回 イベント処理</h3>
   </body>
 </html>
