@@ -81,5 +81,84 @@ let data = {
 
 /////////////////// 課題3-2 はここから書き始めよう
 let p1 = document.querySelector('div#result'); 
+let p = document.createElement('p'); 
+p.textContent = '検索結果:2件'; 
 
-p1.textContent = (data.list.g1[0].start_time )+(data.list.g1[0].end_time )+(data.list.g1[0].service.name )+(data.list.g1[0].title )+(data.list.g1[0].subtitle )+(data.list.g1[0].act );
+let tb = document.createElement('table'); 
+let tr  = document.createElement('tr');
+let th  = document.createElement('th');
+let td  = document.createElement('td');
+
+tr  = document.createElement('tr');
+th  = document.createElement('th');
+th.textContent = '開始時刻'; 
+tr.insertAdjacentElement('beforeend', th);
+for (let t1 of data.list.g1){
+  td  = document.createElement('td'); 
+  td.textContent = t1.start_time;
+  tr.insertAdjacentElement('beforeend', td); 
+} 
+tb.insertAdjacentElement('beforeend', tr);
+p1.insertAdjacentElement('afterend', tb); 
+
+tr  = document.createElement('tr');
+th  = document.createElement('th');
+th.textContent = '終了時刻'; 
+tr.insertAdjacentElement('beforeend', th);
+for (let t1 of data.list.g1){
+  td  = document.createElement('td'); 
+  td.textContent = t1.end_time;
+  tr.insertAdjacentElement('beforeend', td); 
+} 
+tb.insertAdjacentElement('beforeend', tr);
+p1.insertAdjacentElement('afterend', tb); 
+
+tr  = document.createElement('tr');
+th  = document.createElement('th');
+th.textContent = 'チャンネル'; 
+tr.insertAdjacentElement('beforeend', th);
+for (let t1 of data.list.g1){
+  td  = document.createElement('td'); 
+  td.textContent = t1.service.name;
+  tr.insertAdjacentElement('beforeend', td); 
+} 
+tb.insertAdjacentElement('beforeend', tr);
+p1.insertAdjacentElement('afterend', tb); 
+
+tr  = document.createElement('tr');
+th  = document.createElement('th');
+th.textContent = 'タイトル'; 
+tr.insertAdjacentElement('beforeend', th);
+for (let t1 of data.list.g1){
+  td  = document.createElement('td'); 
+  td.textContent = t1.title;
+  tr.insertAdjacentElement('beforeend', td); 
+} 
+tb.insertAdjacentElement('beforeend', tr);
+p1.insertAdjacentElement('afterend', tb); 
+
+tr  = document.createElement('tr');
+th  = document.createElement('th');
+th.textContent = 'サブタイトル'; 
+tr.insertAdjacentElement('beforeend', th);
+for (let t1 of data.list.g1){
+  td  = document.createElement('td'); 
+  td.textContent = t1.subtitle;
+  tr.insertAdjacentElement('beforeend', td); 
+} 
+tb.insertAdjacentElement('beforeend', tr);
+p1.insertAdjacentElement('afterend', tb); 
+
+tr  = document.createElement('tr');
+th  = document.createElement('th');
+th.textContent = '出演者'; 
+tr.insertAdjacentElement('beforeend', th);
+for (let t1 of data.list.g1){
+  td  = document.createElement('td'); 
+  td.textContent = t1.act;
+  tr.insertAdjacentElement('beforeend', td); 
+} 
+tb.insertAdjacentElement('beforeend', tr);
+p1.insertAdjacentElement('afterend', tb); 
+
+p1.insertAdjacentElement('afterend', p); 
