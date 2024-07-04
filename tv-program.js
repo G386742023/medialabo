@@ -80,6 +80,23 @@ let data = {
 };
 
 /////////////////// 課題3-2 はここから書き始めよう
+let b = document.querySelector('button#btn');
+b.addEventListener('click', showSelectResult);
+
+function showSelectResult() {
+    let s1 = document.querySelector('select#channel');
+    let idx1 = s1.selectedIndex;  // idx 番目の option が選択された
+    let os1 = s1.querySelectorAll('option');  // s の子要素 option をすべて検索
+    let o1 = os1.item(idx1);       // os の idx 番目の要素
+    console.log('チャンネル: ' + o1.textContent);
+
+    let s2 = document.querySelector('select#genre');
+    let idx2 = s2.selectedIndex;  // idx 番目の option が選択された
+    let os2 = s2.querySelectorAll('option');  // s の子要素 option をすべて検索
+    let o2 = os2.item(idx2);       // os の idx 番目の要素
+    console.log('ジャンル: ' + o2.textContent);
+}
+
 let p1 = document.querySelector('div#result'); 
 let p = document.createElement('p'); 
 p.textContent = '検索結果:2件'; 

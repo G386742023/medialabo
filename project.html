@@ -8,39 +8,33 @@
     <script src="tv-program.js" defer></script>
   </head>
   <body>
-    <h4>チャンネル</h4>
     <p>
-      <input type="radio" name="channel" id="year2" value="2">
-      <label for="year2">Eテレ1</label>
+      <label for="channel">チャンネル</label>
+      <select name="channel" id="channel">
+          <option value=""></option>
+          <option value="e1">NHK総合1</option>
+          <option value="g1">Eテレ1</option>
+      </select>
     </p>
-    <h4>ジャンル</h4>
     <p>
-      <input type="radio" name="genre" id="0000" value="0000">
-      <label for="0000">ニュース・報道</label>
-      <input type="radio" name="genre" id="0100" value="0100">
-      <label for="0100">スポーツ</label>
-      <input type="radio" name="genre" id="0205" value="0205">
-      <label for="0205">情報・ワイドショー</label>
-      <input type="radio" name="genre" id="0300" value="0300">
-      <label for="0300">ドラマ</label>
-      <input type="radio" name="genre" id="0409" value="0409">
-      <label for="0409">音楽</label>
-      <input type="radio" name="genre" id="0502" value="0502">
-      <label for="0502">バラエティ</label>
-      <input type="radio" name="genre" id="0600" value="0600">
-      <label for="0600">映画</label>
-      <input type="radio" name="genre" id="0700" value="0700">
-      <label for="0700">アニメ</label>
-      <input type="radio" name="genre" id="0800" value="0800">
-      <label for="0800">ドキュメンタリー・教養</label>
-      <input type="radio" name="genre" id="0903" value="0903">
-      <label for="0903">劇場・公演</label>
-      <input type="radio" name="genre" id="1000" value="1000">
-      <label for="1000">趣味・教育</label>
-      <input type="radio" name="genre" id="1100" value="1100">
-      <label for="1100">福祉</label>
+      <label for="genre">ジャンル</label>
+      <select name="genre" id="genre">
+          <option value=""></option>
+          <option value="0000">ニュース・報道</option>
+          <option value="0100">スポーツ</option>
+          <option value="0205">情報・ワイドショー</option>
+          <option value="0300">ドラマ</option>
+          <option value="0409">音楽</option>
+          <option value="0502">バラエティ</option>
+          <option value="0600">映画</option>
+          <option value="0700">アニメ</option>
+          <option value="0800">ドキュメンタリー・教養</option>
+          <option value="0903">劇場・公演</option>
+          <option value="1000">趣味・教育</option>
+          <option value="1100">福祉</option>
+      </select>
     </p>
-    <button id="print">検索</button>
+    <button id="btn">検索</button>
       <div id="result"></div>
   </body>
 </html>
