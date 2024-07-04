@@ -1,4 +1,4 @@
-p, h1, h2, h3, li{
+p, h1, h2, h4, td{
     color: gray;
 }
 
@@ -40,8 +40,8 @@ table {
     text-align: left;
   }
   
-  tbody {
-    background-color: rgba(255, 255, 255,0.7);
+  td {
+    background-color: rgba(255, 255, 255, 0.6);
   }
   
   th {
