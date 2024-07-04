@@ -1,4 +1,4 @@
-p, h1, h2, h3, li, th, td{
+p, h1, h2, h3, li, th, td, dd, dt{
     color: gray;
 }
 
@@ -23,11 +23,11 @@ h3 {
 }
 
 a:link {
-    color: chocolate;
+    color: rgb(163, 225, 93);
 }
 
 a:visited {
-    color: rgb(175, 149, 117);
+    color: rgb(81, 149, 47);
 }
 
 a:hover {
