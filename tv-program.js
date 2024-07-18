@@ -80,102 +80,159 @@ let data = {
 };
 
 /////////////////// 課題3-2 はここから書き始めよう
-let b = document.querySelector('button#btn');
-b.addEventListener('click', showSelectResult);
 
-function showSelectResult() {
-    let s1 = document.querySelector('select#channel');
+let b = document.querySelector('button#btn');
+b.addEventListener('click', sendRequest);
+
+// 通信を開始する処理
+function sendRequest() {
+  
+  let w = document.querySelectorAll('div#result > *')
+  for(let l1 of w) {
+    l1.remove();
+    } 
+
+
+  let s1 = document.querySelector('select#channel');
     let idx1 = s1.selectedIndex;  // idx 番目の option が選択された
     let os1 = s1.querySelectorAll('option');  // s の子要素 option をすべて検索
     let o1 = os1.item(idx1);       // os の idx 番目の要素
-    console.log('チャンネル: ' + o1.textContent);
+    console.log('チャンネル: ' + o1.getAttribute('value')); 
+    //console.log('チャンネル: ' + o1.textContent);
 
     let s2 = document.querySelector('select#genre');
     let idx2 = s2.selectedIndex;  // idx 番目の option が選択された
     let os2 = s2.querySelectorAll('option');  // s の子要素 option をすべて検索
     let o2 = os2.item(idx2);       // os の idx 番目の要素
-    console.log('ジャンル: ' + o2.textContent);
+    console.log('ジャンル: ' + o2.getAttribute('value')); 
+    //console.log('ジャンル: ' + o2.textContent);
+	// URL を設定
+
+  let channel = o1.getAttribute('value');
+  let genre = o2.getAttribute('value');
+
+	let url = "https://www.nishita-lab.org/web-contents/jsons/nhk/"+channel+"-"+genre+"-j.json";
+
+	// 通信開始
+	axios.get(url)
+		.then(showResult)
+		.catch(showError)
+		.then(finish);
 }
 
-let p1 = document.querySelector('div#result'); 
-let p = document.createElement('p'); 
-p.textContent = '検索結果:2件'; 
+// 通信が成功した時の処理
+function showResult(resp) {
+	// サーバから送られてきたデータを出力
+	let data = resp.data;
 
-let tb = document.createElement('table'); 
-let tr  = document.createElement('tr');
-let th  = document.createElement('th');
-let td  = document.createElement('td');
+	// data が文字列型なら，オブジェクトに変換する
+	if (typeof data === 'string') {
+		data = JSON.parse(data);
+	}
+  print(data);
 
-tr  = document.createElement('tr');
-th  = document.createElement('th');
-th.textContent = '開始時刻'; 
-tr.insertAdjacentElement('beforeend', th);
-for (let t1 of data.list.g1){
-  td  = document.createElement('td'); 
-  td.textContent = t1.start_time;
-  tr.insertAdjacentElement('beforeend', td); 
-} 
-tb.insertAdjacentElement('beforeend', tr);
-p1.insertAdjacentElement('afterend', tb); 
+  /*
+	// data をコンソールに出力
+	console.log(data);
 
-tr  = document.createElement('tr');
-th  = document.createElement('th');
-th.textContent = '終了時刻'; 
-tr.insertAdjacentElement('beforeend', th);
-for (let t1 of data.list.g1){
-  td  = document.createElement('td'); 
-  td.textContent = t1.end_time;
-  tr.insertAdjacentElement('beforeend', td); 
-} 
-tb.insertAdjacentElement('beforeend', tr);
-p1.insertAdjacentElement('afterend', tb); 
+	// data.x を出力
+	console.log(data.x);
+*/
+}
 
-tr  = document.createElement('tr');
-th  = document.createElement('th');
-th.textContent = 'チャンネル'; 
-tr.insertAdjacentElement('beforeend', th);
-for (let t1 of data.list.g1){
-  td  = document.createElement('td'); 
-  td.textContent = t1.service.name;
-  tr.insertAdjacentElement('beforeend', td); 
-} 
-tb.insertAdjacentElement('beforeend', tr);
-p1.insertAdjacentElement('afterend', tb); 
+// 通信エラーが発生した時の処理
+function showError(err) {
+	console.log(err);
+}	
 
-tr  = document.createElement('tr');
-th  = document.createElement('th');
-th.textContent = 'タイトル'; 
-tr.insertAdjacentElement('beforeend', th);
-for (let t1 of data.list.g1){
-  td  = document.createElement('td'); 
-  td.textContent = t1.title;
-  tr.insertAdjacentElement('beforeend', td); 
-} 
-tb.insertAdjacentElement('beforeend', tr);
-p1.insertAdjacentElement('afterend', tb); 
+// 通信の最後にいつも実行する処理
+function finish() {
+	console.log('Ajax 通信が終わりました');
+}
 
-tr  = document.createElement('tr');
-th  = document.createElement('th');
-th.textContent = 'サブタイトル'; 
-tr.insertAdjacentElement('beforeend', th);
-for (let t1 of data.list.g1){
-  td  = document.createElement('td'); 
-  td.textContent = t1.subtitle;
-  tr.insertAdjacentElement('beforeend', td); 
-} 
-tb.insertAdjacentElement('beforeend', tr);
-p1.insertAdjacentElement('afterend', tb); 
+function print(data){
+  let ge = data.list.g1;
+  if (ge === undefined) {
+    ge = data.list.e1;
+  }
+  let p1 = document.querySelector('div#result'); 
+  let p = document.createElement('p'); 
+  p.textContent = '検索結果:'+ge.length+'件'; 
 
-tr  = document.createElement('tr');
-th  = document.createElement('th');
-th.textContent = '出演者'; 
-tr.insertAdjacentElement('beforeend', th);
-for (let t1 of data.list.g1){
-  td  = document.createElement('td'); 
-  td.textContent = t1.act;
-  tr.insertAdjacentElement('beforeend', td); 
-} 
-tb.insertAdjacentElement('beforeend', tr);
-p1.insertAdjacentElement('afterend', tb); 
+  let tb = document.createElement('table'); 
+  p1.insertAdjacentElement('beforeend', p); 
+  p1.insertAdjacentElement('beforeend', tb); 
+  let tr  = document.createElement('tr');
+  let th  = document.createElement('th');
+  let td  = document.createElement('td');
 
-p1.insertAdjacentElement('afterend', p); 
+  tr  = document.createElement('tr');
+  th  = document.createElement('th');
+  th.textContent = '開始時刻'; 
+  tr.insertAdjacentElement('beforeend', th);
+  for (let t1 of ge){
+    td  = document.createElement('td'); 
+    td.textContent = t1.start_time;
+    tr.insertAdjacentElement('beforeend', td); 
+  } 
+  tb.insertAdjacentElement('beforeend', tr);
+
+
+  tr  = document.createElement('tr');
+  th  = document.createElement('th');
+  th.textContent = '終了時刻'; 
+  tr.insertAdjacentElement('beforeend', th);
+  for (let t1 of ge){
+    td  = document.createElement('td'); 
+    td.textContent = t1.end_time;
+    tr.insertAdjacentElement('beforeend', td); 
+  } 
+  tb.insertAdjacentElement('beforeend', tr);
+
+  tr  = document.createElement('tr');
+  th  = document.createElement('th');
+  th.textContent = 'チャンネル'; 
+  tr.insertAdjacentElement('beforeend', th);
+  for (let t1 of ge){
+    td  = document.createElement('td'); 
+    td.textContent = t1.service.name;
+    tr.insertAdjacentElement('beforeend', td); 
+  } 
+  tb.insertAdjacentElement('beforeend', tr);
+
+  tr  = document.createElement('tr');
+  th  = document.createElement('th');
+  th.textContent = 'タイトル'; 
+  tr.insertAdjacentElement('beforeend', th);
+  for (let t1 of ge){
+    td  = document.createElement('td'); 
+    td.textContent = t1.title;
+    tr.insertAdjacentElement('beforeend', td); 
+  } 
+  tb.insertAdjacentElement('beforeend', tr);
+
+  tr  = document.createElement('tr');
+  th  = document.createElement('th');
+  th.textContent = 'サブタイトル'; 
+  tr.insertAdjacentElement('beforeend', th);
+  for (let t1 of ge){
+    td  = document.createElement('td'); 
+    td.textContent = t1.subtitle;
+    tr.insertAdjacentElement('beforeend', td); 
+  } 
+  tb.insertAdjacentElement('beforeend', tr);
+
+  tr  = document.createElement('tr');
+  th  = document.createElement('th');
+  th.textContent = '出演者'; 
+  tr.insertAdjacentElement('beforeend', th);
+  for (let t1 of ge){
+    td  = document.createElement('td'); 
+    td.textContent = t1.act;
+    tr.insertAdjacentElement('beforeend', td); 
+  } 
+  tb.insertAdjacentElement('beforeend', tr);
+
+}
+
+

@@ -68,4 +68,9 @@ table {
   tfoot td {
     font-weight: bold;
   }
+
+
+body{
+  background-image: url("blue-background.avif") ;  
+}
   
