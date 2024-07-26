@@ -52,7 +52,7 @@ table {
     border: 1px solid rgb(204, 204, 204);
     padding: 8px 10px;
   }
-  
+
   td:last-of-type {
     text-align: center;
   }
@@ -69,7 +69,7 @@ table {
     font-weight: bold;
   }
 
-
+/*
 body{
   background-image: url("blue-background.avif") ;  
 }
